@@ -1,3 +1,5 @@
+![Pipeline_image](https://github.com/user-attachments/assets/54ad9c9f-3ca6-423f-b714-2aa01fe6f508)
+
 # Variant-calling---Pathogen
 Everything you need to perform basic variant calling for any pathogen.
 ## Description
