@@ -16,7 +16,7 @@ conda create -n pathogen
 conda activate pathogen
 
 # Installing tools
-conda install sra-tools fastqc multiqc fastp bwa samtools freebayes
+conda install sra-tools fastqc multiqc fastp bwa samtools freebayes snpEff
 ```
 ### Step 2 - Download samples
 These are SAR-COV19 samples obtained from NCBI-SRA. Run the command below to download them to your local device.
@@ -45,34 +45,24 @@ Now we are already to align our filtered reads to the reference genome.
 bash alignment.sh
 ```
 ### Step 5 - Variant calling
+After the sequencing reads are aligned to a reference genome, variant callers are used to identify genetic variants by comparing the aligned reads to the reference. These tools use different algorithms to detect differences such as single nucleotide polymorphisms (SNPs), insertions and deletions (indels), and other structural variants. Tools include; FreeBayes, GATK, VarScan, Bcftools, and others. We are going to use Freebayes for this tutorial.
+```
+bash variant_caller.sh
+```
+### Step 6 - Annotation
+After calling our variants, we perform an annotation step that helps us understand their biological and functional significance. Tools like SnpEff and VEP (Variant Effect Predictor) are widely used for this purpose. These tools provide insights into whether variants occur in important genomic regions, such as coding sequences, and predict their potential effects on protein function, gene regulation, and pathogenicity. This is particularly critical for understanding how genetic changes in pathogens affect virulence, drug resistance, and immune evasion.
+```
+# Installing snpEff
+wget https://snpeff.blob.core.windows.net/versions/snpEff_latest_core.zip
+unzip snpEff_latest_core.zip
+cd snpEff_latest_core
 
+# Checking the available databases
+java -jar snpEff.jar databases | less
 
+java -jar snpEff.jar download sars-cov
+java -Xmx8g -jar snpEff.jar -v sars-cov vcf/${i}.vcf > ${i}_annotated.vcf
+```
+## Thanks
 
-dir="ref"
-
-if [ -e $dir/*.ann ]
-then
-	echo " reference indexed"
-else
-	echo " Index reference"
-	bwa index $2
-	echo "Done indexing reference $2"
-fi
-
-#alignment, converting, sorting BAM, index the sorted BAM and variant calling
-mkdir -p alignment
-dir="alignment"
-
-
-#for loop
-for n in $sample
-do
-	R1=${n}_1.fastq
-	R2=${n}_2.fastq
-	bwa mem $2 $R1 $R2 > $dir/$n.sam
-	samtools view -O BAM -o $dir/${n}.bam $dir/${n}.sam
-	samtools sort $dir/${n}.bam > $dir/${n}_sorted.bam
-	samtools index $dir/${n}_sorted.bam
-	freebayes -f $2 $dir/${n}_sorted.bam > $dir/${n}.vcf
-done
 
