@@ -16,7 +16,7 @@ conda create -n pathogen
 conda activate pathogen
 
 # Installing tools
-conda install fastqc multiqc fastp bwa samtools freebayes
+conda install sra-tools fastqc multiqc fastp bwa samtools freebayes
 ```
 ### Step 2 - Download samples
 These are SAR-COV19 samples obtained from NCBI-SRA. Run the command below to download them to your local device.
@@ -27,8 +27,6 @@ bash sample_downloader.sh sample.txt
 The raw sequence data downloaded above is assessed for quality. This step ensures that only high-quality data is used for downstream analysis. Raw sequence data from high-throughput sequencing often contains errors or low-quality regions, which, if not addressed, can lead to false variant calls. Tools like FastQC or multiqc are used to check quality.
 ```
 bash qc.sh
-fastqc samples/* -o qc
-multiqc qc/
 ```
 After checking the quality of the data, a bioinformatician chooses to trim/filter the data or not. Tools like **fastp**, cutadapt, or Trimmomatic can be used depending on his/her preference. 
 ```
@@ -36,17 +34,6 @@ bash filter.sh
 ```
 ### Step 4 - Alignment
 Alignment to a reference genome is a crucial step in variant calling, where the high-quality sequencing reads (after QC) are mapped to a reference genome of the pathogen. This process allows researchers to identify where in the genome each read originates and to detect variations by comparing the aligned reads to the reference sequence.
-# 3 - contains fastq reads
-
-#fastq=$(cat $3)
-
-#for loop
-#mkdir -p qualitychecks_3
-
-#for i in $fastq
-#do
-#       fastqc $i -o qualitychecks_3
-#done
 
 #Indexing
 # 2 - contains reference sequence
