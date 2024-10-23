@@ -1,9 +1,9 @@
-![Pipeline_image](https://github.com/user-attachments/assets/54ad9c9f-3ca6-423f-b714-2aa01fe6f508)
-
 # Variant-calling---Pathogen
 Everything you need to perform basic variant calling for any pathogen.
+
 ## Description
 Variant calling of pathogens refers to the process of identifying differences (variants) in the genome of a pathogen compared to a reference genome. These variants can include single nucleotide polymorphisms (SNPs), insertions, deletions (indels), or structural variations. Variant calling is crucial in understanding how pathogens evolve, develop resistance to treatments, or adapt to different hosts or environments. We are going to focused on the basic bioinformatics pipeline for this tutorial.
+![Pipeline_image](https://github.com/user-attachments/assets/54ad9c9f-3ca6-423f-b714-2aa01fe6f508)
 
 ## Requirements
 * Miniconda or micromamba installed [LINK](https://docs.anaconda.com/miniconda/#miniconda-latest-installer-links)
