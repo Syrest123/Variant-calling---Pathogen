@@ -47,6 +47,8 @@ bash filter.sh
 ### Step 4 - Alignment
 Alignment to a reference genome is a crucial step in variant calling. In this process, the high-quality sequencing reads (after QC) are mapped to a reference genome of the pathogen. This process allows us to identify where in the genome each read originates and to detect variations by comparing the aligned reads to the reference sequence. In this case, we shall use one of the first isolated cases, known as NC_045512v2 or wuhCor1.
 ```
+mkdir ref
+cd ref
 wget https://github.com/CDCgov/SARS-CoV-2_Sequencing/blob/master/sequences/reference-NC_045512.fasta
 
 # Indexing the reference
@@ -54,6 +56,7 @@ bwa index reference-NC_045512.fasta
 ```
 Now we are already to align our filtered reads to the reference genome.
 ```
+cd ..
 bash alignment.sh
 ```
 ### Step 5 - Variant calling
