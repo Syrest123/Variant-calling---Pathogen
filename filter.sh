@@ -1,6 +1,5 @@
 #!/bin/bash
 # Performs trimming or filtering
-```
 sample=$(cat samples.txt)
 for i in $sample
 do
