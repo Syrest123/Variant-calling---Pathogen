@@ -9,7 +9,7 @@ do
   R1=${i}_trimmed_R1.fq
   R2=${i}_trimmed_R2.fq
   echo "Performing alignment of $i"
-	bwa mem $ref samples/$R1 samples/$R2 > $dir/${i}.sam
+	bwa mem ref/$ref samples/$R1 samples/$R2 > $dir/${i}.sam
 	samtools view -O BAM -o $dir/${i}.bam $dir/${i}.sam
 	samtools sort $dir/${i}.bam > $dir/${i}_sorted.bam
 	samtools index $dir/${i}_sorted.bam
