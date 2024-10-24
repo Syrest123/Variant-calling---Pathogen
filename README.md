@@ -74,9 +74,9 @@ unzip snpEff_latest_core.zip
 cd snpEff_latest_core
 
 # Checking the available databases
-java -jar snpEff.jar databases | less
+java -jar snpEff.jar databases | grep SARS
 
-java -jar snpEff.jar download sars-cov
+java -jar snpEff.jar download SARS
 java -Xmx8g -jar snpEff.jar -v sars-cov vcf/${i}.vcf > ${i}_annotated.vcf
 ```
 ## Thanks
