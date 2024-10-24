@@ -7,6 +7,6 @@ sample=$(cat $1)
 for i in $sample
 do
 	echo "Downloading $i"
-	fasterq-dump $i -o $dir
+	fasterq-dump $i -O $dir
 	echo "Done downloading $i"
 done
