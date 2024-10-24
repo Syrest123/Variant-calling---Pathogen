@@ -3,7 +3,7 @@
 mkdir -p alignment
 dir="alignment"
 sample=$(cat samples.txt)
-ref="reference-NC_045512.fasta"
+ref="seq.fasta"
 for i in $sample
 do
   R1=${i}_trimmed_R1.fq
