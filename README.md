@@ -67,6 +67,7 @@ bash variant_caller.sh
 ```
 ### Step 6 - Annotation
 After calling our variants, we perform an annotation step that helps us understand their biological and functional significance. Tools like SnpEff and VEP (Variant Effect Predictor) are widely used for this purpose. These tools provide insights into whether variants occur in important genomic regions, such as coding sequences, and predict their potential effects on protein function, gene regulation, and pathogenicity. This is particularly critical for understanding how genetic changes in pathogens affect virulence, drug resistance, and immune evasion.
+
 Installing snpEff
 ```
 wget https://snpeff.blob.core.windows.net/versions/snpEff_latest_core.zip
