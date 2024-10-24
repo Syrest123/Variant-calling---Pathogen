@@ -49,9 +49,10 @@ Alignment to a reference genome is a crucial step in variant calling. In this pr
 ```
 mkdir ref
 cd ref
-wget https://github.com/CDCgov/SARS-CoV-2_Sequencing/blob/master/sequences/reference-NC_045512.fasta
-
-# Indexing the reference
+```
+Let's go to [NCBI](https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2?report=fasta) to obtain our reference sequence
+Indexing the reference
+```
 bwa index reference-NC_045512.fasta
 ```
 Now we are already to align our filtered reads to the reference genome.
