@@ -8,6 +8,6 @@ for i in $sample
 do
 	echo "Downloading $i"
 	#fasterq-dump $i -O $dir
- 	fastq-dump $i --split-files -O $dir -N 10000 -x 110000
+ 	fastq-dump $i --split-files -O $dir -N 10000 -X 110000
 	echo "Done downloading $i"
 done
