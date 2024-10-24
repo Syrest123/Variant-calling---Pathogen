@@ -4,6 +4,7 @@ mkdir -p alignment
 dir="alignment"
 sample=$(cat samples.txt)
 ref="seq.fasta"
+samtools faidx ref/$ref
 for i in $sample
 do
   R1=${i}_trimmed_R1.fq
