@@ -4,8 +4,8 @@
 sample=$(cat samples.txt)
 for i in $sample
 do
-  R1=${i}_R1.fastq.gz
-  R2=${i}_R2.fastq.gz
-  echo "==== Trimming $i ===="
-  fastp -i $R1 -I $R2 -o ${i}_trimmed_R1.fq.gz -O ${i}_trimmed.R2.fq.gz
+  R1=${i}_1.fastq
+  R2=${i}_2.fastq
+  echo "Trimming $i"
+  fastp -i $R1 -I $R2 -o ${i}_trimmed_R1.fq -O ${i}_trimmed.R2.fq
 done
