@@ -53,7 +53,7 @@ cd ref
 Let's go to [NCBI](https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2?report=fasta) to obtain our reference sequence
 Indexing the reference
 ```
-bwa index reference-NC_045512.fasta
+bwa index seq.fasta
 ```
 Now we are already to align our filtered reads to the reference genome.
 ```
