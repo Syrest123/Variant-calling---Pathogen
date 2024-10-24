@@ -17,11 +17,13 @@ We begin by creating a new environment where all our tools are going to be insta
 # Creating a new environment (less than 3mins)
 conda create -n pathogen
 conda activate pathogen
-
-# Installing tools (less than 10mins)
+```
+Installing tools (less than 10mins)
+```
 conda install sra-tools fastqc multiqc fastp bwa samtools freebayes snpEff
-
-# Download this zipped folder to your working environment (less than 1min)
+```
+Download this zipped folder to your working environment (less than 1min)
+```
 mkdir pathogen
 cd pathogen
 wget https://github.com/Syrest123/Variant-calling---Pathogen/archive/refs/heads/main.zip
